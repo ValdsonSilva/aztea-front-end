@@ -1,11 +1,10 @@
 "use client"
 
 import Image, { getImageProps } from "next/image";
-import Link from "next/link";
 import AzteaBlackLogo from "../public/aztea-logos/aztea-black.png"
+import Link from "next/link";
+import { Login } from "@/components/forms/Login";
 import { useState } from "react";
-import {FaXRay} from "react-icons/fa"
-import { FaCircleXmark} from "react-icons/fa6";
 
 
 const imageProps = getImageProps({
@@ -15,10 +14,6 @@ const imageProps = getImageProps({
   height: 700,
 })
 
-const formInputStyle = `
-  bg-[var(--white)] text-[var(--black)] w-full p-2 rounded-lg
-  outline-0
-`
 
 export default function Home() {
 
@@ -40,27 +35,19 @@ export default function Home() {
           <div className=" w-full">
             <button 
                 className="flex justify-center 
-                  items-center rounded-2xl w-[200px] 
-                  h-[60px] bg-[var(--white)] text-[var(--black)] 
-                  text-[18px] font-bold ml-[60%] cursor-pointer"
+                  items-center rounded-2xl w-[150px] 
+                  h-[40px] bg-[var(--white)] text-[var(--black)] 
+                  text-[15px] font-bold ml-[60%] cursor-pointer
+                  hover:bg-[var(--gray)]
+                  md:w-[200px] md:h-[70px] md:text-[18px]
+                  lg:w-[200px] lg:h-[70px] lg:text-[18px]"
                   onClick={() => setShowForm(true)}
-              >
+            >
                 Let's go :)
             </button>
           </div>  
       </div>
-      <div className={`${showForm ? "flex" : "hidden"} flex-col items-center bg-[var(--black)] border-l border-white w-[30%] h-dvh z-10 text-white absolute right-0 top-0`}>
-          <form action="" className="flex flex-col items-center gap-10 w-full h-[400px] mt-[50px] p-20">
-            <button type="button" onClick={() => setShowForm(false)} className="flex absolute left-5 top-5 text-white cursor-pointer">
-              <FaCircleXmark size={20}/>
-            </button>
-    
-            <h1 className="font-black text-3xl text-center">Welcome to Aztea-Media</h1>
-            <input type="email" placeholder="Inform your email" className={formInputStyle}/>
-            <input type="password" placeholder="Inform your password" className={formInputStyle}/>
-            <button type="submit" className="border-1 border-white p-3 w-36 rounded-lg">sign in</button>
-          </form>
-      </div>
+      <Login showForm={showForm} setShowForm={setShowForm}/>
     </div>
   );
 }

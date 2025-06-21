@@ -14,7 +14,8 @@
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "zod": "^3.26.0-canary.20250618T044324"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

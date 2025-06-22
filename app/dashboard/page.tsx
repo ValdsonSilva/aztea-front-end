@@ -1,18 +1,34 @@
 import Link from "next/link";
-import { Bs1SquareFill, BsCollection, BsDatabaseX, BsFileBarGraph, BsFileBarGraphFill, BsFileEarmarkBarGraph, BsFileEarmarkBarGraphFill, BsFilePost, BsFullscreen, BsGraphUpArrow, BsImage, BsPlayBtn, BsShield, BsShieldExclamation, BsWindowFullscreen, BsWordpress } from "react-icons/bs";
-import { FaHeadphonesAlt, FaRegPlayCircle } from "react-icons/fa";
-import { FaHeadphones, FaHeadphonesSimple, FaImage, FaImages, FaPaperPlane, FaPencil, FaPlay, FaPlaystation, FaPlus, FaSatelliteDish, FaScreenpal, FaSheetPlastic, FaUser, FaVideo } from "react-icons/fa6";
-import {FcCheckmark, FcDataProtection, FcDataSheet} from "react-icons/fc"
-import { FiCheckSquare, FiShield } from "react-icons/fi";
+import { BsCollection, BsFileBarGraph, BsFilePost, BsImage, BsPlayBtn} from "react-icons/bs";
+import { FaHeadphones, FaPencil, FaPlus, FaUser } from "react-icons/fa6";
+import { FiCheckSquare } from "react-icons/fi";
 
 const linkStyle = `
-    flex justify-center items-center gap-2
-`
+    flex justify-center items-center gap-3
+    text-[15px]
+`;
 
 const ulStyle = `
     text-left flex
     justify-start
-`
+`;
+
+const dashBoardCardStyle = `
+    flex flex-col justify-center items-center bg-[var(--white)] 
+    w-[165px] h-[114px] border-[0.6] border-[var(--gray)] border-solid rounded-[10px]
+`;
+
+const dashBoardCardDivision = `
+    pl-5 w-full mt-2.5
+`;
+
+const dashBoardNumbersTitleStyle = `
+    text-[var(--black)] font-semibold text-[20px]
+`;
+
+const dashBoardCardNumberStyle = `
+    font-semibold text-[50px]
+`;
 
 export default function Dashboard() {
     return(
@@ -78,36 +94,52 @@ export default function Dashboard() {
                         </Link>
                     </ul>
                 </div>
-                <Link href="/new_content" className="mt-[100px] border-1 rounded-[12px] flex justify-center items-center gap-2 w-[90%] h-[55px] m-4">
+                <Link href="/new_content" className="mt-[100px] border-[0.5px] border-solid border-[var(--white)] rounded-[10px] flex justify-center items-center gap-2 w-[90%] h-[45px] m-4 text-[15px] ">
                     <FaPlus size={20}/>
                     New content
                 </Link>
             </div>
 
-            <div>
-                <h1>Dashboard</h1>
+            <div className="mt-12 ml-16 mb-[59px] text-[var(--black)]">
+                <h1 className="font-semibold leading-normal text-[30px] mb-10 ">
+                    Dashboard
+                </h1>
                 {/* posts - faixas - videos - colagens/acessos */}
-                <div>
-                    <div>
-                        <h3>Posts</h3>
-                        <h1>20</h1>
-                    </div>
-                    <div>
-                        <h3>Faixa</h3>
-                        <h1>5</h1>
-                    </div>
-                    <div>
-                        <h3>Videos</h3>
-                        <h1>8</h1>
-                    </div>
-                    <div>
-                        <div>
-                            <h3>Colagens</h3>
-                            <h1>12</h1>
+                <div className="flex gap-7">
+                    <div className={dashBoardCardStyle}>
+                        <div className={dashBoardCardDivision}>
+                            <h3 className={dashBoardNumbersTitleStyle}>Posts</h3>
                         </div>
+                        <h1 className={dashBoardCardNumberStyle}>20</h1>
+                    </div>
+                    <div className={dashBoardCardStyle}>
+                        <div className={dashBoardCardDivision}>
+                            <h3 className={dashBoardNumbersTitleStyle}>Faixa</h3>
+                        </div>
+                        <h1 className={dashBoardCardNumberStyle}>5</h1>
+                    </div>
+                    <div className={dashBoardCardStyle}>
+                        <div className={dashBoardCardDivision}>
+                            <h3 className={dashBoardNumbersTitleStyle}>Videos</h3>
+                        </div>
+                        <h1 className={dashBoardCardNumberStyle}>8</h1>
+                    </div>
+                    <div className="flex justify-center items-center bg-[var(--white)] 
+                                    w-[277px] h-[114px] border-[var(--gray)] border-[0.6] border-solid 
+                                    rounded-[10px] gap-5"  
+                    >
                         <div>
-                            <h3>Acessos</h3>
-                            <h1>42,5K</h1>
+                            <div>
+                                <h3 className={dashBoardNumbersTitleStyle}>Colagens</h3>
+                            </div>
+                            <h1 className={dashBoardCardNumberStyle}>12</h1>
+                        </div>
+                        <div className=" flex bg-[var(--gray)] w-[1px] h-full relative top-0"></div>
+                        <div>
+                            <div>   
+                                <h3 className={dashBoardNumbersTitleStyle}>Acessos</h3>
+                            </div>
+                            <h1 className={dashBoardCardNumberStyle}>42,5K</h1>
                         </div>
                     </div>
                 </div>

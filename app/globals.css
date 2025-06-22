@@ -18,12 +18,12 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --black: #000000;
-    --gray: #a69f95;
+    --gray: #767179;
     --white: #fff;
     --ligth-orange: #d3673d;
     --ligth-pink: #f9a287;
     --dark-blue: #355C67;
-    --super-ligth-pink: #E9BFBF;
+    --super-ligth-pink: #F2E5D5;
   }
 }
 
@@ -31,4 +31,5 @@ body {
   background: var(--black);
   color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Ralawey; */
 }

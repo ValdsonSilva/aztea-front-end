@@ -7,11 +7,6 @@ import { useRouter } from "next/navigation";
 import { loginSchema, LoginForm } from "../../lib/schema/loginSchema";
 
 
-interface IFormData {
-  email: string,
-  password: string
-}
-
 interface ILoginForm {
     showForm: boolean,
     setShowForm: (value: boolean) => void,

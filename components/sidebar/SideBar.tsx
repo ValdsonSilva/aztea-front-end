@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { BsCollection, BsFileBarGraph, BsFilePost, BsImage, BsPlayBtn } from "react-icons/bs";
-import { FaHeadphones, FaPencil, FaPlus, FaUser } from "react-icons/fa6";
+import { BsImage, BsMusicNoteList, BsPlayBtn, BsPlusSquare, BsStopwatch } from "react-icons/bs";
+import { FaGear, FaPencil, FaPlus, FaUser } from "react-icons/fa6";
 import { FiCheckSquare } from "react-icons/fi";
 
 
@@ -20,7 +20,7 @@ export function SideBar() {
                 <figure className="mt-15">
                     <img src="#" alt="Aztea Media logo" />
                 </figure>
-                <aside className="flex flex-col gap-5">
+                <aside className="flex flex-col justify-center gap-5">
                     <ul className={ulStyle}>
                         <Link href={"/dashboard"} className={linkStyle}>
                             <FiCheckSquare size={20}/>
@@ -29,14 +29,8 @@ export function SideBar() {
                     </ul>
                     <ul className={ulStyle}>
                         <Link href={"#"} className={linkStyle}>
-                            <BsFilePost size={20}/>
+                            <BsPlusSquare size={20}/>
                             Posts
-                        </Link>
-                    </ul>
-                    <ul className={ulStyle}>
-                        <Link href={"#"} className={linkStyle}>
-                            <FaHeadphones size={20}/>
-                            Tracks
                         </Link>
                     </ul>
                     <ul className={ulStyle}>
@@ -46,9 +40,9 @@ export function SideBar() {
                         </Link>
                     </ul>
                     <ul className={ulStyle}>
-                        <Link href={"#"} className={linkStyle}>
-                            <BsCollection size={20}/>
-                            Collages
+                        <Link href={"/#"} className={linkStyle}>
+                            <BsMusicNoteList size={20}/>
+                            Tracks
                         </Link>
                     </ul>
                     <ul className={ulStyle}>
@@ -60,12 +54,12 @@ export function SideBar() {
                     <ul className={ulStyle}>
                         <Link href={"#"} className={linkStyle}>
                             <FaUser size={20}/>
-                            Users
+                            User
                         </Link>
                     </ul>
                     <ul className={ulStyle}>
                         <Link href={"#"} className={linkStyle}>
-                            <BsFileBarGraph className={linkStyle}/>
+                            <BsStopwatch className={linkStyle} size={20}/>
                             Statistic
                         </Link>
                     </ul>
@@ -73,6 +67,12 @@ export function SideBar() {
                         <Link href={"#"} className={linkStyle}>
                             <BsImage/>
                             Media
+                        </Link>
+                    </ul>
+                    <ul className={ulStyle}>
+                        <Link href={"#"} className={linkStyle}>
+                            <FaGear size={20}/>
+                            Settings
                         </Link>
                     </ul>
                 </aside>

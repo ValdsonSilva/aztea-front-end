@@ -18,12 +18,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --black: #000000;
-    --gray: #767179;
+    --gray: #C7C7C7;
     --white: #fff;
     --ligth-orange: #d3673d;
     --ligth-pink: #f9a287;
     --dark-blue: #355C67;
     --super-ligth-pink: #F2E5D5;
+    --yellow: #FFEE00;
   }
 }
 

@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 import { loginSchema, LoginForm } from "../../lib/schema/loginSchema";
 
 
-interface ILoginForm {
+export interface ILoginForm {
     showForm: boolean,
-    setShowForm: (value: boolean) => void,
+    setShowForm?: (value: boolean) => void,
 }
 
 const formInputStyle = `
@@ -70,6 +70,6 @@ export function Login({showForm, setShowForm}:ILoginForm) {
                     <button type="submit" className="flex justify-center items-center border-1 border-white rounded-lg cursor-pointer font-lightd p-2 w-32 sm:p-3 sm:w-36">{loading ? "entering..." : "sign in"}</button>
                 </div>
             </form>
-      </div>
+        </div>
     )
 }

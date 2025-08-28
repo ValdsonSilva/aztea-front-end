@@ -1,54 +1,71 @@
 "use client"
 
-import Image, { getImageProps } from "next/image";
 import LoginForm from "../components/forms/azteaMedia2/Login";
-import { useState } from "react";
-import AzteaBackGround from "../public/aztea-logos/current-backgroun.png"
+import { useContext, useState } from "react";
 import { AccessHeader } from "@/components/header/AccessHeader";
-
-
-const imageProps = getImageProps({
-  src: "../public/aztea-logos/current-backgroun.png",
-  alt: "The Aztea-media's background",
-  width: 1000,
-  height: 700,
-})
+import BaseBackgroundLayout from "@/components/layout/BaseBackgroundLayout";
+import { authContext, AuthProvider, useAuthContext } from "@/services/authContext";
+import MenuCard from "@/components/popups/MenuCard";
 
 
 export default function Home() {
-
   const [showForm, setShowForm] = useState(false);
+  const { isUserAuthenticated } = useAuthContext();
+  console.log("isUserAuthenticated", isUserAuthenticated);
+
+  const [showMenuCard, setShowMenuCard] = useState(false)
 
   return (
-    <div className="flex flex-col justify-center items-center align-middle bg">
-        <AccessHeader state={showForm} setShowForm={setShowForm}/>
-        <div className="z-0">
-          <figure className="relative">
-            <Image
-              src={AzteaBackGround}
-              alt={imageProps.props.alt}
-              unoptimized
-              fill
-              priority
-            />
-          </figure>
-        </div>
+    <BaseBackgroundLayout>
+      <AccessHeader state={showForm} setShowForm={setShowForm} />
 
-        {showForm ? (
-          <LoginForm showForm={showForm}/>
-        ) :  (
-          <div className="flex flex-col justify-center items-center min-h-screen">
-              <h1 className="text-[var(--yellow)] text-[69px] font-normal">AZTEA MEDIA WELCOME YOU</h1>
-              <h3 className="text-[var(--yellow)] text-[28px] font-normal">WHAT  DO YOU WANT TO EXPLORE TODAY?</h3>
+      {showForm ? (
+        <LoginForm showForm={showForm} />
+      ) : (
+        <div className="flex flex-col items-center justify-center
+                      min-h-[70vh] sm:min-h-[75vh] md:min-h-screen
+                      px-4 sm:px-6 md:px-8">
+          <h1
+            className="text-[var(--yellow)] font-normal text-center
+                     text-3xl sm:text-4xl md:text-6xl lg:text-7xl"
+          >
+            AZTEA MEDIA WELCOME YOU
+          </h1>
+
+          {/* Use button para acessibilidade no toggle */}
+          <button
+            type="button"
+            onClick={() => setShowMenuCard(!showMenuCard)}
+            className="mt-3 md:mt-4 text-[var(--yellow)] font-normal
+                     text-sm sm:text-base md:text-2xl
+                     underline-offset-4 hover:underline focus:underline
+                     focus:outline-none"
+          >
+            WHAT DO YOU WANT TO EXPLORE TODAY?
+          </button>
+
+          <div
+            className="w-full mt-4 md:mt-6
+                     flex justify-center md:justify-end
+                     px-0 sm:px-2 md:px-5"
+          >
+            {showMenuCard ? <MenuCard /> : null}
           </div>
-        )}
-
-        <div className="mb-[200px]">
-          <blockquote className="text-center text-lg italic text-[var(--yellow)]">
-          “A random quote for you”
-            <span className="block mt-2 text-sm font-light">— 2025, Annoying Berky</span>
-          </blockquote>
         </div>
-    </div>
+      )}
+
+      <div className="mb-12 sm:mb-16 md:mb-24 lg:mb-48 px-4">
+        <blockquote
+          className="mx-auto max-w-prose text-center italic
+                   text-[var(--yellow)]
+                   text-sm sm:text-base md:text-lg"
+        >
+          “One randomly quote according to the person”
+          <span className="block mt-2 text-xs sm:text-sm md:text-base font-light">
+            — 2025, Annoying Berky
+          </span>
+        </blockquote>
+      </div>
+    </BaseBackgroundLayout>
   );
 }
